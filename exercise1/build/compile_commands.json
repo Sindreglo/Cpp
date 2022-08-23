@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/sindreglomnes/Documents/Dataing/5.semester/Cpp/exercise1/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++    -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=12.0 -std=gnu++14 -o CMakeFiles/exercise1.dir/main.cpp.o -c /Users/sindreglomnes/Documents/Dataing/5.semester/Cpp/exercise1/main.cpp",
-  "file": "/Users/sindreglomnes/Documents/Dataing/5.semester/Cpp/exercise1/main.cpp"
-}
-]

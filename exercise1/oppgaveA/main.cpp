@@ -11,7 +11,7 @@ int main() {
 
   cout << "Du skal skrive inn 5 temperaturer." << endl;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < length; i++) {
     double temperature;
     cout << "Temperatur nr " << i + 1 << ":"; // utskrift, bruker <iostream>
     cin >> temperature;                       // innlesing, bruker <iostream>

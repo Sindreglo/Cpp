@@ -31,7 +31,7 @@ void read_temperatures(double temperatures[], int length) {
   int tenToTwenty = 0;
   int overTwenty = 0;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < length; i++) {
     if (temperatures[i] < 10) {
       underTen += 1;
     } else if (temperatures[i] >= 10 && temperatures[i] <= 20) {

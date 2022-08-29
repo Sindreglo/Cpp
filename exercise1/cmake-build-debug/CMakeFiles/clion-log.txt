@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/sindreglomnes/Documents/Dataing/5.semester/Cpp/exercise1 Select CMakeLists.txt

@@ -14,7 +14,7 @@ int main() {
 
   cout << "Summen av de 10 første tallene: " << find_sum(table, 10) << endl;
   cout << "Summen av de 5 neste tallene: " << find_sum(&table[10], 5) << endl;
-  cout << "Summen av de 5 siste tallene: " << find_sum(table + 15, 5) << endl;
+  cout << "Summen av de 5 siste tallene: " << find_sum(table + (length - 5), 5) << endl;
 
   return 0;
 }

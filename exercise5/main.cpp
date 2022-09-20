@@ -31,11 +31,41 @@ public:
   };
 
   class King : public Piece {
-    // missing implementations
+  public:
+    King(Color color_) : Piece(color_){};
+    string type() const {
+      string color_str = (color == Color::WHITE) ? "white" : "black";
+      return color_str + " king";
+    };
+
+    bool valid_move(int from_x, int from_y, int to_x, int to_y) const {
+      int x_change = abs(from_x - to_x);
+      int y_change = abs(from_y - to_y);
+      if ((x_change == 1) ||
+          (y_change == 1))
+        return true;
+
+      return false;
+    }
   };
 
   class Knight : public Piece {
-    // missing implementations
+  public:
+    Knight(Color color_) : Piece(color_){};
+    string type() const {
+      string color_str = (color == Color::WHITE) ? "white" : "black";
+      return color_str + " knight";
+    }
+
+    bool valid_move(int from_x, int from_y, int to_x, int to_y) const {
+      int x_change = abs(from_x - to_x);
+      int y_change = abs(from_y - to_y);
+      if (x_change == 2 && y_change == 1)
+        return true;
+      if (y_change == 2 && x_change == 1)
+        return true;
+      return false;
+    }
   };
 
   ChessBoard() {

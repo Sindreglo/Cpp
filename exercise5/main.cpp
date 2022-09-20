@@ -28,6 +28,8 @@ public:
 
     /// Returns true if the given chess piece move is valid
     virtual bool valid_move(int from_x, int from_y, int to_x, int to_y) const = 0;
+
+    virtual string text_desc() const = 0;
   };
 
   class King : public Piece {
@@ -41,12 +43,15 @@ public:
     bool valid_move(int from_x, int from_y, int to_x, int to_y) const {
       int x_change = abs(from_x - to_x);
       int y_change = abs(from_y - to_y);
-      if ((x_change == 1) ||
-          (y_change == 1))
+      if ((x_change == 1 && y_change <= 1) ||
+          (y_change == 1 && x_change <= 1))
         return true;
 
       return false;
     }
+    string text_desc() const {
+      return (color == Color::WHITE) ? "♕" : "♛";
+    };
   };
 
   class Knight : public Piece {
@@ -66,6 +71,9 @@ public:
         return true;
       return false;
     }
+    string text_desc() const {
+      return (color == Color::WHITE) ? "♘" : "♞";
+    };
   };
 
   ChessBoard() {
@@ -113,6 +121,18 @@ public:
       return false;
     }
   }
+
+  friend ostream &operator<<(ostream &os, const ChessBoard &chess_board) {
+    for (int row = 7; row >= 0; row--) {
+      os << to_string(row + 1) << " ";
+      for (int col = 0; col < 8; col++) {
+        auto &piece = chess_board.squares[col][row];
+        os << (piece ? piece->text_desc() + " " : "□ ");
+      }
+      os << "\n";
+    }
+    return os;
+  }
 };
 
 int main() {
@@ -133,13 +153,23 @@ int main() {
   cout << endl;
 
   cout << "A simulated game:" << endl;
+  cout << board << endl;
   board.move_piece("e1", "e2");
+  cout << board << endl;
   board.move_piece("g8", "h6");
+  cout << board << endl;
   board.move_piece("b1", "c3");
+  cout << board << endl;
   board.move_piece("h6", "g8");
+  cout << board << endl;
   board.move_piece("c3", "d5");
+  cout << board << endl;
   board.move_piece("g8", "h6");
+  cout << board << endl;
   board.move_piece("d5", "f6");
+  cout << board << endl;
   board.move_piece("h6", "g8");
+  cout << board << endl;
   board.move_piece("f6", "e8");
+  cout << board << endl;
 }

@@ -56,7 +56,7 @@ public:
     }
 
     string text_desc() const {
-      return (color == Color::WHITE) ? "K" : "K";
+      return (color == Color::WHITE) ? "♕" : "♛";
     };
   };
 
@@ -82,7 +82,7 @@ public:
     }
 
     string text_desc() const {
-      return (color == Color::WHITE) ? "N" : "N";
+      return (color == Color::WHITE) ? "♘" : "♞";
     };
   };
 
@@ -152,11 +152,10 @@ public:
       os << to_string(row + 1) << " ";
       for (int col = 0; col < 8; col++) {
         auto &piece = chess_board.squares[col][row];
-        os << (piece ? piece->text_desc() + " " : "- ");
+        os << (piece ? piece->text_desc() + " " : "□ ");
       }
       os << "\n";
     }
-    os << "  a b c d e f g h";
     return os;
   }
 };

@@ -6,25 +6,17 @@
 
 using namespace std;
 
-// Oppgave a)
-
 Fraction Fraction::operator-(int integer) const {
   Fraction fraction;
   fraction.set(integer);
   return *this - fraction;
 }
 
-//
-
-// Oppgave b)
-
 Fraction operator-(int integer, const Fraction &other) {
   Fraction fraction;
   fraction.set(integer);
   return fraction - other;
 }
-
-//
 
 Fraction::Fraction() : numerator(0), denominator(1) {}
 

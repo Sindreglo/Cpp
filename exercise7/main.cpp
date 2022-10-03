@@ -1,4 +1,5 @@
 #include "fraction.hpp"
+#include "set.hpp"
 #include <iostream>
 #include <string>
 
@@ -41,8 +42,33 @@ int main() {
     b -= a;
   print("b = ", b);
 
-  Fraction fraction1(4, 5);
+  // oppgave 1 a)
+
+  Fraction fraction1(3, 6);
   print("Fraction1 = ", fraction1);
   print("fraction1 - 5 = ", fraction1 - 5);
   print("5 - fraction1 = ", 5 - fraction1);
+
+  // oppgave 1 b)
+  // 5-3 = operator-(int,int) = 2
+  // 2 - fraction1 = operator-(int, const Fraction &fraction)
+  // (2 - fraction1) - 7 = fraction1.operator-(int integer)
+  // ((2 - fraction1) - 7) - fraction2 = fraction1.operator-(const Fraction &fraction)
+
+  Set set1;
+  set1 += 1;
+  set1 += 2;
+  set1 += 2;
+  cout << "Set1 = " << set1 << endl;
+
+  Set set2;
+  set2 += 3;
+  set2 += 1;
+  cout << "Set2 = " << set2 << endl;
+
+  set2 << set1;
+  cout << "After union = " << set2 << endl;
+
+  auto set4 = set2;
+  cout << "Set4 = " << set4 << endl;
 }

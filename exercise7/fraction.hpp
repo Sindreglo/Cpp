@@ -33,5 +33,4 @@ private:
   void reduce();
   int compare(const Fraction &other) const;
 };
-
 Fraction operator-(int integer, const Fraction &other);
